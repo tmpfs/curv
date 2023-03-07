@@ -58,8 +58,8 @@ proptest = "0.10"
 proptest-derive = "0.2"
 blake2 = "0.9"
 
-[features]
-default = ["rust-gmp-kzen"]
+#[features]
+#default = ["rust-gmp-kzen"]
 
 [package.metadata.docs.rs]
 rustdoc-args = [ "--html-in-header", "katex-header.html", "--cfg", "docsrs" ]
