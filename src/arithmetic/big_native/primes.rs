@@ -503,6 +503,9 @@ fn is_bit_set(x: &BigUint, i: usize) -> bool {
 fn gen_biguint_below<R: Rng>(r: &mut R, upper: &BigUint) -> BigUint {
     loop {
         let bits = upper.bits();
+        #[cfg(target_os = "macos")]
+        let bytes = bits.div_ceil(&8u64);
+        #[cfg(not(target_os = "macos"))]
         let bytes = bits.div_ceil(8u64);
         let mut buf = vec![0u8; bytes as usize];
         r.fill_bytes(&mut buf);
